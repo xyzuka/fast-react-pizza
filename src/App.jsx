@@ -5,27 +5,36 @@ import Menu from './features/menu/Menu';
 import Cart from './features/cart/Cart';
 import Order from './features/order/Order';
 import CreateOrder from './features/order/CreateOrder';
+import AppLayout from './ui/AppLayout';
 
 const router = createBrowserRouter([
+  // the AppLayout component is the parent route which will contain all the other routes
+  // other routes will be "nested" as children
+  // the Outlet component inside AppLayout renders the current nested route
   {
-    path: '/',
-    element: <Home />,
-  },
-  {
-    path: '/menu',
-    element: <Menu />,
-  },
-  {
-    path: '/cart',
-    element: <Cart />,
-  },
-  {
-    path: '/order/new',
-    element: <CreateOrder />,
-  },
-  {
-    path: '/order/:orderID',
-    element: <Order />,
+    element: <AppLayout />,
+    children: [
+      {
+        path: '/',
+        element: <Home />,
+      },
+      {
+        path: '/menu',
+        element: <Menu />,
+      },
+      {
+        path: '/cart',
+        element: <Cart />,
+      },
+      {
+        path: '/order/new',
+        element: <CreateOrder />,
+      },
+      {
+        path: '/order/:orderID',
+        element: <Order />,
+      },
+    ],
   },
 ]);
 

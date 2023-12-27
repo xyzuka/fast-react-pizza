@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import Header from "./Header";
 import Loader from "./Loader";
 import CartOverview from "../features/cart/CartOverview";
